@@ -1,27 +1,97 @@
 <!DOCTYPE html>
 <html lan="en">
 <head>
-    <style>
-        body {
-            color: #fff;
-            background-color:#404040;
-            font-family: 'Oxygen',sans-serif;
-        }
-        .mian {
-            background-image: url("IMG_20190815_084927.jpg");
-        }
-    </style>
-    <title>Learning bootstrap</title>
+    <title>UID project Personnel website</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale-1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=acme' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Shadows Into Light' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+    <style>
+    body {
+        background: url("https://looser-yashh.github.io/UID-project/myproject/annie-spratt-PtrGWQG2YQY-unsplash.jpg") no-repeat;
+        background-size: cover;
+        background-color:#404040;
+        font-family: 'Oxygen',sans-serif;
+    }
+    .jumbotron {
+        background: url("https://images.unsplash.com/photo-1550645612-83f5d594b671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60") no-repeat;
+        background-size: cover;
+        font-family:fantasy;
+        color:#ebebad;
+        border:0;
+        height:100%;
+        border-radius: 0;
+        opacity: :0.7;
+    }
+    img {
+        float:left
+    }
+    .myimage {
+        width:20%;
+        margin-right: 40px;
+    }
+    #fl1 {
+        color: #ccccff;
+        font-family:'Shadows Into Light';
+    }
+    #fl2 {
+        font-family:'acme';
+        text-shadow: 2px 2px;
+        letter-spacing: 3px;
+        color: #ffb399;
+    }
+    .nav2 {
+        display:block;
+        font-family: 'Monoton';
+        font-size: 25px;
+    }
+    .logo {
+        float:left;
+        width:100px;
+    } 
+    .quote {
+        padding:60px;
+        font-size:35px ;
+        font-family:'Special Elite';
+        }
+</style>
 </head>
 <body>
-    <div class="jumbotron main">
-
+    <div class="jumbotron" id="main">
+        <div class="nav1 container">
+            <nav class="navbar navbar-expand-sm navbar-light fixed-bottom">
+                    <div class="navbar-brand">
+                        <img class="logo" src="https://looser-yashh.github.io/UID-project/myproject/Amrita-University-Logo.png">
+                    </div>
+                <ul class="navbar-nav"> 
+                  <li class="nav-item active">
+                    <a class="nav-link nav2" href="https://looser-yashh.github.io/UID-project/index.html"><b>Home</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav2" href="https://looser-yashh.github.io/UID-project/education.html"><b>Education</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav2" href="https://looser-yashh.github.io/UID-project/about.html"><b>About</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav2" href="https://looser-yashh.github.io/UID-project/contact.html"><b>Contact</b></a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+        <br>
+        <div><img src="https://looser-yashh.github.io/UID-project/myproject/IMG_20190819_161914.jpg" class="rounded-circle myimage" alt="myimage"></div>
+        <div>
+            <h class="display-1" id="fl1">I'M YASWANTH PHANI K</h>
+            <h2 id=fl2>COMPUTER SCIENCE STUDENT</h2>
+        </div>
     </div>
+    <div class="quote container">"Whether you want to uncover the secrets of the universe,or you want to pursue a career in the 21st century,basic computer programming is an essential skill to learn"</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
