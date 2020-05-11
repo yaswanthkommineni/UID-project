@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-4</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        p {
+            font-size: 18px;
+        }
+        .btn {
+            float:left;
+            margin: 20px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+<header class="bg-success text-white p-4 mb-3"><div class="container bg-success">
+    <h1>Answer for fourth Question</h1>
+</div>
+</header>
+    <div class="container">
+        <p id="para">JavaScriptoften abbreviated as JS, is a programming languagethat conforms to the ECMAScriptspecification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-basedobject-orientation, and first-class functions.<br><br>Alongside HTMLand CSS, JavaScript is one of the core technologies of the World Wide Web.[8]JavaScript enables interactive web pagesand is an essential part of web applications. The vast majority of websitesuse it for client-sidepage behavior, and all major web browsershave a dedicated JavaScript engineto execute it.<br><br>As a multi-paradigm language, JavaScript supports event-driven, functional, and imperativeprogramming styles. It has application programming interfaces(APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model(DOM). However, the language itself does not include any input/output(I/O), such as networking,storage, or graphicsfacilities, as the host environment (usually a web browser) provides those APIs.<br><br>JavaScript engines were originally used only in web browsers, but they are now embedded in some server-sidewebsite deployments, usually via Node.js. They are also embedded in a variety of applications created with frameworkssuch as Electronand Cordova.<br><br>Although there are similarities between JavaScript and Java, including language name, syntax, and respective standard libraries, the two languages are distinct and differ greatly in design.</p>
+    </div>
+    <div class="container">
+        <button id="edit" class="btn btn-outline-secondary">Edit</button>
+        <button id="save" class="btn btn-outline-primary">Save</button>
+        <button id="cancel" class="btn btn-danger">Cancel</button>
+    </div>
+    <script>
+        var edit = document.getElementById('edit');
+        var cancel;
+        edit.addEventListener('click', access);
+        document.getElementById('save').addEventListener('click',ok);
+        document.getElementById('cancel').addEventListener('click',restore);
+
+        function access(e){
+            cancel = document.getElementById('para').innerText;
+            document.getElementById('para').contentEditable = true;
+        }
+
+        function ok(e){
+            document.getElementById('para').contentEditable = false;
+        }
+
+        function restore(e){
+            document.getElementById('para').innerText = cancel;
+            document.getElementById('para').contentEditable = false;
+        }
+    </script>
+</div>
+</body>
+</html>

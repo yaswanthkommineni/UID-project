@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-7_b</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .main {
+            padding :20px;
+            background-color: #cfcfcf;
+        }
+        h3 {
+            margin-bottom:20px;
+        }
+        #reset {
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+<header class="bg-dark text-white p-4 mb-3"><div class="container">
+    <h1>Answer for seventh Question part b</h1>
+</div>
+</header>
+    <div class="main container mt-3">
+        <h3 class="title">Student Registration Form</h3>
+        <form>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Name:</label>
+                <div class="col-sm-11">
+                    <input  id="name" type="text" class="form-control" placeholder="Name of Student">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Mobile:</label>
+                <div class="col-sm-11">
+                    <input id="mobile" type="text" class="form-control" placeholder="Contact Number">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Address:</label>
+                <div class="col-sm-11">
+                    <input id="address" type="text" class="form-control" placeholder="Address line">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">City:</label>
+                <div class="col-sm-11">
+                    <select id="city" class="form-control custom-select">
+                        <option selected>Select your city</option>
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>Hyderabad</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">State:</label>
+                <div class="col-sm-11">
+                    <input id="state" type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Pincode:</label>
+                <div class="col-sm-11">
+                    <input id="pin" type="text" class="form-control" placeholder="Area Pincode">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11">
+                    <button id="submit" type="submit" class="btn btn-outline-success">Submit</button>
+                    <button id="reset" class="btn btn-outline-danger">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        var iname = document.getElementById('name');
+        var imobile = document.getElementById('mobile');
+        var iadd = document.getElementById('address');
+        var icity = document.getElementById('city');
+        var istate = document.getElementById('state');
+        var ipin = document.getElementById('pin');
+        var submit = document.getElementById('submit');
+        var rst = document.getElementById('reset');
+        rst.addEventListener('click',rest);
+        iname.addEventListener('keyup',check1);
+        imobile.addEventListener('keyup',check2);
+        iadd.addEventListener('keyup',check3);
+        icity.addEventListener('change',check4);
+        istate.addEventListener('keyup',check5);
+        ipin.addEventListener('keyup',check6);
+        submit.addEventListener('click',validate);
+
+        function validate(e){
+            var fl=true;
+            var pattern1 = /^[A-Za-z]+$/;
+            var pattern2 = /^[0-9]{10}$/;
+            var pattern3 = /^[0-9]{6}$/;
+            if(iname.value.length == 0){
+                alert('Name should not be empty');
+                iname.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(!(iname.value.match(pattern1))){
+                alert('Name Should only contain alphabets');
+                iname.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(imobile.value.length == 0){
+                alert('Mobile no. should not be empty');
+                imobile.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(!(imobile.value.match(pattern2))){
+                alert('Mobile no. must be of 10 digits');
+                imobile.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(iadd.value.length == 0){
+                alert('Adress is mandatory');
+                iadd.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(document.getElementsByTagName('option')[icity.selectedIndex].value == 'Select your city'){
+                alert('Pleae select your city');
+                icity.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(istate.value.length == 0){
+                alert('State is required');
+                istate.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(!(ipin.value.match(pattern3))){
+                alert('pin number must contain 6 digits');
+                ipin.className="form-control is-invalid"
+                fl=false;
+            }
+            if(!(fl)){
+                e.preventDefault();
+            }
+        }
+
+        function rest(e){
+            e.preventDefault();
+            var all = document.querySelectorAll('input[type="text"]');
+            for(var i=0;i<all.length;i++){
+                all[i].value = '';
+            }
+        }
+
+        function check1(e){
+            var letters = /^[A-Za-z]+$/;
+            var name = e.target.value;
+            if(name.length!=0 && name.match(letters)){
+                e.target.className="form-control is-valid";
+            }
+            else{
+                e.target.className="form-control is-invalid";
+            }
+        }
+
+        function check2(e){
+            var dig = /^[0-9]{10}$/;
+            var name=e.target.value;
+            if(name.match(dig)){
+                e.target.className="form-control is-valid";
+            }
+            else{
+                e.target.className="form-control is-invalid";
+            }
+        }
+
+        function check3(e){
+            var name=e.target.value;
+            if(name.length!=0){
+                e.target.className="form-control is-valid";
+            }
+            else{
+                e.target.className="form-control is-invalid";
+            }
+        }
+
+        function check4(e){
+            var temp =e.target.selectedIndex;
+            if(document.getElementsByTagName('option')[temp].value == 'Select your city'){
+                e.target.className="form-control custom-select is-invalid";
+            }
+            else{
+                e.target.className="form-control custom-select is-valid";
+            }
+            if(document.getElementsByTagName('option')[temp].value == 'Delhi'){
+                ipin.value=110001;
+            }
+            else if(document.getElementsByTagName('option')[temp].value == 'Mumbai'){
+                ipin.value=400004;
+            }
+            else if(document.getElementsByTagName('option')[temp].value == 'Hyderabad'){
+                ipin.value=500001;
+            }
+        }
+
+        function check5(e){
+            var name=e.target.value;
+            if(name.length!=0){
+                e.target.className="form-control is-valid";
+            }
+            else{
+                e.target.className="form-control is-invalid";
+            }
+        }
+
+        function check6(e){
+            var dig = /^[0-9]{6}$/;
+            var name=e.target.value;
+            if(name.match(dig)){
+                e.target.className="form-control is-valid";
+            }
+            else{
+                e.target.className="form-control is-invalid";
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-9</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .btn {
+            float:left;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        #output {
+            clear:left;
+            padding :20px;
+            font-size: 30px;
+            font-family:'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+        }
+    </style>
+</head>
+<body>
+<header class="bg-info text-white p-4 mb-3"><div class="container">
+    <h1>Answer for Ninth Question</h1>
+</div>
+</header>
+    <div class="container">
+        <button id="fn" class="btn btn-outline-dark">First Name</button>
+        <button id="ln" class="btn btn-outline-dark">Last Name</button>
+    </div>
+    <div id="output" class="container"></div>
+    <script>
+        var fbtn = document.getElementById('fn');
+        var lbtn = document.getElementById('ln');
+        var out = document.getElementById('output'); 
+        var defFname = "Rahul";
+        var defLname = "Dravid";
+        out.textContent = "Hello" + " " + defFname + " " + defLname;
+
+        fbtn.addEventListener('click',takeFname);
+        lbtn.addEventListener('click',takeLname);
+
+        function takeFname(e){
+            defFname = prompt("Please Enter your first name",defFname);
+            out.textContent = "Hello" + " " + defFname + " " + defLname;
+        }
+
+        function takeLname(e){
+            defLname = prompt("Please Enter your last name",defLname);
+            out.textContent = "Hello" + " " + defFname + " " + defLname;
+        }
+    </script>
+</div>
+</body>
+</html>

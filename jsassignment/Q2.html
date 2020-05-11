@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+<header class="bg-success text-white p-4 mb-3"><div class="container bg-success">
+    <h1>Answer for second Question</h1>
+</div>
+</header>
+<div class="container">
+    <div class="container" id="Date"></div>
+    <div class="container" id="Time"></div>
+    <script>
+        var d = new Date();
+        var seconds = d.getSeconds();
+        var minute = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes();
+        var hour = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours();
+        var noon = d.getHours() >= 12 ? ' PM' : ' AM';
+        var year = d.getFullYear();
+        var temp = d.getMonth()+1;
+        var month = temp.toString().length == 1 ? '0'+temp : temp;
+        var day = d.getDate().toString().length == 1 ? '0'+d.getDate() :d.getDate();
+        var output1 = document.getElementById('Date');
+        var output2 = document.getElementById('Time');
+        output1.textContent='Date'+' : '+day+'/'+month+'/'+year;
+        output2.textContent='Time'+' : '+hour+':'+minute+":"+seconds+noon;
+    </script>
+</div>
+</body>
+</html>

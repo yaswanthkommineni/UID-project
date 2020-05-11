@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="bg-success text-white p-4 mb-3"><div class="container bg-success">
+    <h1>Answer for first Question</h1>
+</div>
+</header>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" id="UN" placeholder="Name" name="text/">
+        </div>
+        <div class="form-group">
+            <label>DOB:</label>
+            <input class="form-control" id="dob" placeholder="example: 07/09/2002" name="text/">
+        </div>
+    </form>
+    <button id="button" class="btn btn-primary">Submit</button><br><br>
+    <div class="container" id="output"></div>
+    <script>
+        var inputText = document.getElementById('dob');
+        var dat=document.querySelector('button');
+        dat.addEventListener('click', give);
+        function give(e){
+            var DayName = [
+            " first",
+            " second",
+            " third",
+            " fourth",
+            " fifth",
+            " sixth",
+            " seventh",
+            " eighth",
+            " nineth",
+            " tenth",
+            " eleventh",
+            " twelveth",
+            " thirteenth",
+            " fourteenth",
+            " fifteenth",
+            " sixteenth",
+            " seventeenth",
+            " eighteenth",
+            " nineteenth",
+            " twenth",
+            " twenty first",
+            " twenty second",
+            " twenty third",
+            " twenty fourth",
+            " twenty fifth",
+            " twenty sixth",
+            " twenty seventh",
+            " twenty eighth",
+            " twenty nineth",
+            " thirty",
+            " thirty first" ];
+            var monthName = [
+            " january",
+            " february",
+            " march",
+            " april",
+            " may",
+            " june",
+            " july",
+            " august",
+            " september",
+            " october",
+            " november",
+            " december",
+            ];
+            var th = " thousand";
+            var hr = " hundred";
+            var TenNames = [ 
+            "",
+            " ten",
+            " twenty",
+            " thirty",
+            " forty",
+            " fifty",
+            " sixty",
+            " seventy",
+            " eighty",
+            " ninety"];
+            var zNames = [
+                "",
+                " one",
+                " two",
+                " three",
+                " four",
+                " five",
+                " six",
+                " seven",
+                " eight",
+                " nine",
+                " ten",
+                " eleven",
+                " twelve",
+                " thirteen",
+                " fourteen",
+                " fifteen",
+                " sixteen",
+                " seventeen",
+                " eighteen",
+                " nineteen"
+            ];
+            var ans = "";
+            var day = parseInt(inputText.value.slice(0,2));
+            var month = parseInt(inputText.value.slice(3,5));
+            var year = parseInt(inputText.value.slice(6,10));
+            ans+= DayName[day-1];
+            ans+= monthName[month-1];
+            if(year>=2000 || year<1300){
+                ans+= zNames[parseInt(year/1000)]
+                if(year>999) ans+= th;
+                if(parseInt((year/100)%10)>0){
+                    ans+= zNames[parseInt((year/100)%10)];
+                    ans+= hr;
+                }
+                converttwodigit(year%100);
+            }
+            else {
+                ans+= zNames[parseInt(year/100)];
+                if(year%100<20){
+                    ans+=hr;
+                }
+                converttwodigit(year%100);
+            }
+            function converttwodigit(number){
+                if(number<20){
+                    ans+= zNames[number];
+                }
+                else {
+                    ans+= TenNames[parseInt(number/10)];
+                    ans+= zNames[number%10];
+                }
+            }
+            document.getElementById('output').textContent=ans;
+            document.getElementById('output').style.textTransform = 'capitalize' ;
+        }
+    </script>
+</div>
+</body>
+</html>

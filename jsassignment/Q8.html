@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-8</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            box-sizing:border-box;
+        }
+        .Slides {
+            display : none;
+        }
+        body {
+            margin :0;
+        }
+        .Slide {
+            max-width : 1000px;
+            position : relative;
+            margin :auto;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(61, 83, 180, 0.4);
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade1 {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+        }
+    </style>
+</head>
+<body>
+<header class="bg-primary text-white p-4 mb-3"><div class="container">
+    <h1>Answer for Eighth Question</h1>
+</div>
+</header>
+<div class="Slide">
+    <div class="Slides fade1">
+        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1467&q=80" style="width:100%">
+    </div>
+    <div class="Slides fade1">
+        <img src="https://images.unsplash.com/photo-1585822754398-04873d4e1f50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1520&q=80" style="width:100%">
+    </div>
+    <div class="Slides fade1">
+        <img src="https://images.unsplash.com/photo-1587280501635-a19de238a81e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" style="width:100%">
+    </div>
+    <div class="Slides fade1">
+        <img src="https://images.unsplash.com/photo-1562077772-3bd90403f7f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" style="width:100%">
+    </div>
+    <a id="prev" class="carousel-control-prev prev" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+    <a id="next" class="carousel-control-next next" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+
+</div>
+<br>
+    <div id="dots" style="text-align:center">
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
+        <span class="dot dot4"></span>
+    </div>
+    <script>
+        var i = 1;
+        giveSlide(1);
+
+        var dott = document.getElementById('dots');
+        dott.addEventListener('click',perform);
+        var pr = document.getElementById('prev');
+        var ne = document.getElementById('next');
+
+        pr.addEventListener('click',nextSlide);
+        ne.addEventListener('click',nextSlide);
+
+        function perform(e){
+            if(e.target.classList.contains('dot1')){
+                curSlide(1);
+            }
+            else if(e.target.classList.contains('dot2')){
+                curSlide(2);
+            }
+            else if(e.target.classList.contains('dot3')){
+                curSlide(3);
+            }
+            else if(e.target.classList.contains('dot4')){
+                curSlide(4);
+            }
+        }
+
+        function nextSlide(e){
+            if(e.target.classList.contains('next')){
+                i+=1;
+            }
+            else i-=1;
+            giveSlide(i);
+        }
+
+        function curSlide(n){
+            i=n;
+            giveSlide(i);
+        }
+
+        function giveSlide(n){
+            var k;
+            var slides = document.getElementsByClassName('Slides');
+            var dots = document.getElementsByClassName('dot');
+            if (n > slides.length) {
+                i=1;
+            }
+            if(n<1){
+                i=slides.length;
+            }
+            for(k=0;k< slides.length; k++){
+                slides[k].style.display = "none";
+            }
+            for(k=0;k<dots.length;k++){
+                dots[k].className = dots[k].className.replace(" active","");
+            }
+            slides[i-1].style.display= "block";
+            dots[i-1].className += " active";
+        }
+    </script>
+</div>
+</body>
+</html>

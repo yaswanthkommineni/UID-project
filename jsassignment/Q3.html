@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="bg-dark text-white p-4 mb-3">
+<div class="container">
+    <h1>Answer for Third Question</h1>
+</div>
+</header>
+<div class="container">
+    <div class="card card-body">
+        <h2 class="title">Edit Information</h2>
+        <form id="editform" class="form-group">
+            <label>Name:</label>
+            <input id="iname" type="text" class="form-control iname" placeholder="name">
+            <label>DOB:</label>
+            <input id="idob" type="text" class="form-control idob" placeholder="date of birth"><br>
+            <button type="submit" class="btn btn-outline-info">Add</button>
+        </form>
+    </div>
+    <div class="container">
+        <h2 class="title">List</h2>
+        <table id="list" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>SI No</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Edit/Delete</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script>
+    var Si = 0;
+    var form = document.getElementById('editform');
+    var List = document.getElementById('list');
+    List.addEventListener('click', idelete);
+    form.addEventListener('submit',append);
+    List.addEventListener('click', iedit);
+    function append(e){
+        Si++;
+        e.preventDefault();
+        var name = document.getElementById('iname').value;
+        var dob = document.getElementById('idob').value;
+        var tr = document.createElement('tr');
+        var th1 = document.createElement('th');
+        var th2 = document.createElement('th');
+        var th3 = document.createElement('th');
+        var th4 = document.createElement('th');
+        btn1 = document.createElement('button');
+        btn2 = document.createElement('button');
+        div = document.createElement('div');
+        th1.appendChild(document.createTextNode(Si));
+        th1.className = 'no' ;
+        th2.appendChild(document.createTextNode(name));
+        th3.appendChild(document.createTextNode(dob));
+        btn1.className = 'btn btn-outline-warning edit';
+        btn2.className = 'btn btn-danger delete';
+        div.className = 'btn-group';
+        btn1.appendChild(document.createTextNode('Edit'));
+        btn2.appendChild(document.createTextNode('Delete'));
+        div.appendChild(btn1);
+        div.appendChild(btn2);
+        th4.appendChild(div);
+        tr.appendChild(th1);
+        tr.appendChild(th2);
+        tr.appendChild(th3);
+        tr.appendChild(th4);
+        List.appendChild(tr);
+    }
+
+    function idelete(e){
+        if(e.target.classList.contains('delete')){
+            if(confirm("You won't get it back!")){
+                var tupple = e.target.parentElement.parentElement.parentElement;
+                List.removeChild(tupple);
+            }
+            var Li = document.querySelectorAll('.no');
+            for(var i=0;i<Li.length;i++){
+                Li[i].textContent=i+1;
+            }
+        }
+    }
+
+    function iedit(e){
+        if(e.target.classList.contains('edit')){
+            if(confirm("The Selected Row data will be replaced by input given in the form.")){
+                var name = document.getElementById('iname');
+                var dob = document.getElementById('idob');
+                curr=e.target.parentElement.parentElement;
+                curr.previousElementSibling.textContent=dob.value;
+                curr.previousElementSibling.previousElementSibling.textContent=name.value;
+            }
+        }
+    }
+</script>
+</body>
+</html>

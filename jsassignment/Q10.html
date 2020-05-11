@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="bg-info text-white p-4 mb-3"><div class="container">
+    <h1>Answer for Tenth Question</h1>
+</div>
+</header>
+    <form class="container">
+        <div class="form-group">
+            <label>Celsius:</label>
+            <input id="C" class="cel form-control">
+        </div>
+        <fieldset disabled>
+        <div class="form-group">
+            <label>Fahrenheit:</label>
+            <input id="F" class="fah form-control">
+        </div>
+    </fieldset>
+    </form>
+    <script>
+        var cel = document.getElementById('C');
+        var fah = document.getElementById('F');
+        cel.value = 0;
+        fah.value = 32;
+        cel.addEventListener('keydown',convert);
+        fah.addEventListener('click',asd);
+
+        function asd(e){
+            e.preventDefault();
+        }
+
+        function convert(e){
+            e.preventDefault();
+            var val = prompt("Enter Temperature in celcius",cel.value);
+            cel.value = val;
+            fah.value = (val*1.8)+32;
+        }
+    </script>
+</div>
+</body>
+</html>

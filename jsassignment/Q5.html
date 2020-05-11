@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question-5</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="bg-info text-white p-4 mb-3"><div class="container">
+    <h1>Answer for fifth Question</h1>
+</div>
+</header>
+    <div class="container">
+        <ul id="list" class="list-group">
+            <li class="list-group-item">Coffee</li>
+            <li class="list-group-item">Tea</li>
+        </ul><br>
+        <button type="button" id="btn" class="btn btn-primary">add water</button>
+    </div>
+    <script>
+        var button = document.getElementById('btn');
+        button.addEventListener('click',addwater);
+
+        function addwater(e){
+            li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.appendChild(document.createTextNode('Water'));
+            myList = document.getElementById('list');
+            myList.appendChild(li);
+            li.parentElement.parentElement.removeChild(e.target);
+        }
+    </script>
+</div>
+</body>
+</html>
