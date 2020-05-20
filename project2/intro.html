@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Balsamiq Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            background: url("https://wallpapercave.com/wp/wp3106288.png") no-repeat center center fixed;
+            background-size:cover;
+            color:#000000;
+            font-family: 'Balsamiq Sans',sans-serif;
+        }
+        .main{
+            margin-top:5%;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="container main" >
+    <h1>Hey there I'm Yaswanth Phani K</h1>
+    <h2>Enter the following to access my website</h2>
+    </header>
+    <div class="container formm">
+        <form action="temp.html">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your Email">
+          </div>
+          <div class="form-group form-check">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                <label class="custom-control-label" for="customCheck">Remember me</label>
+            </label>
+          </div>
+          <button type="submit" id="submit" class="btn btn-outline-warning">Login</button>
+        </form>
+      </div>
+    <script>
+        var iname=document.getElementById('name');
+        var email=document.getElementById('email');
+        iname.addEventListener('keyup',check1);
+        email.addEventListener('keyup',check2);
+        var submitbtn = document.getElementById('submit');
+        submit.addEventListener('click',validate)
+
+        function check1(e){
+            var letters = /^[A-Za-z]+$/;
+            var name1 = e.target.value;
+            if(name1.length!=0 && name1.match(letters)){
+                e.target.className="form-control is-valid";
+            }
+            else{
+                e.target.className="form-control is-invalid";
+            }   
+        }
+
+        function check2(e){
+            if(!(e.target.value.indexOf("@") == -1 || e.target.value.length < 6)){
+                e.target.className="form-control is-valid";
+            }
+            else{
+                e.target.className="form-control is-invalid";
+            }
+        }
+
+        function validate(e){
+            var fl=true;
+            var pattern = /^[A-Za-z]+$/;
+            if(iname.value.length == 0){
+                alert('Name should not be empty');
+                iname.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(!(iname.value.match(pattern))){
+                alert('Name Should only contain alphabets');
+                iname.className="form-control is-invalid"
+                fl=false;
+            }
+            else if(email.value.indexOf("@") == -1 || email.value.length < 6){
+                alert('Enter valid Email address');
+                email.className="form-control is-invalid";
+                fl=false;
+            }
+            if(!(fl)){
+                e.preventDefault();
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
